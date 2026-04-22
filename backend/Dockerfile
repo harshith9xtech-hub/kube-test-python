@@ -1,7 +1,19 @@
-FROM node:18
+FROM node:18-alpine
+
+# Set working directory
 WORKDIR /app
-COPY package.json .
+
+# Copy package files first (for caching)
+COPY package*.json ./
+
+# Install dependencies (THIS is your npm install step)
 RUN npm install
+
+# Copy source code
 COPY . .
+
+# Expose backend port
 EXPOSE 3000
-CMD ["node", "app.js"]
+
+# Start app
+CMD ["node", "server.js"]

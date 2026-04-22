@@ -1,10 +1,19 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
+// ✅ CORS FIX (important for browser)
+app.use(cors({
+  origin: "http://localhost:8081"
+}));
+
+app.use(express.json());
+
 app.get('/api', (req, res) => {
-  res.json({ message: 'Hello from Backend 🚀' });
+  res.json({ message: "Hello from Backend 🚀" });
 });
 
 app.listen(3000, () => {
-  console.log('Backend running on port 3000');
+  console.log("Backend running on port 3000");
 });
