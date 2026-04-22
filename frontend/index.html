@@ -1,48 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>K8s Demo App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    #output {
-      margin-top: 20px;
-      font-size: 20px;
-      color: green;
-    }
-  </style>
+  <title>K8s Demo</title>
 </head>
-
 <body>
-
   <h1>Frontend 🚀</h1>
 
   <button onclick="callApi()">Call Backend</button>
-
-  <p id="output">Response will appear here...</p>
+  <p id="output"></p>
 
   <script>
+    // CHANGE THIS BASE URL WHEN NEEDED
+    const API_BASE = "http://localhost:3001";
+
     function callApi() {
-      fetch('http://localhost:3001/api')
-        .then(response => response.json())
+      fetch(`${API_BASE}/api`)
+        .then(res => res.json())
         .then(data => {
-          document.getElementById('output').innerText = data.message;
+          document.getElementById("output").innerText = data.message;
         })
-        .catch(error => {
-          document.getElementById('output').innerText = "Error calling backend ❌";
-          console.error(error);
+        .catch(err => {
+          document.getElementById("output").innerText = "Error calling API";
+          console.error(err);
         });
     }
   </script>
-
 </body>
 </html>
