@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: frontend:latest
-        imagePullPolicy: Never
+        image: harshith0703/frontend-kube-test
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
