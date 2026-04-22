@@ -1,0 +1,36 @@
+pipline{
+    agent any
+    stages{
+        stage('git clone'){
+            steps{
+            sh '''
+             echo "git clone"
+            '''
+            }
+           
+        }
+        stage('docker build'){
+            steps{
+            sh '''
+            echo "docker build"
+            '''
+            }
+            
+        }
+        stage('docker push'){
+            steps{
+            sh '''
+            echo "docker push"
+            '''
+            }
+        }
+        stage('deploy to k8'){
+            steps{
+                sh '''
+                 echo "deployed to k8"
+                '''
+            }
+           
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>K8s Demo</title>
+</head>
+<body>
+  <h1>Frontend 🚀</h1>
+  <button onclick="callApi()">Call Backend</button>
+  <p id="output"></p>
+
+  <script>
+    function callApi() {
+      fetch('/api')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('output').innerText = data.message;
+        });
+    }
+  </script>
+</body>
+</html>
