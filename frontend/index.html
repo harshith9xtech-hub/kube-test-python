@@ -32,7 +32,7 @@
 
   <script>
     function callApi() {
-      fetch('http://192.168.49.2:30009/api')
+      fetch('http://localhost:3001/api')
         .then(response => response.json())
         .then(data => {
           document.getElementById('output').innerText = data.message;
