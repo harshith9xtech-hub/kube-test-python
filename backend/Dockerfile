@@ -10,11 +10,11 @@ RUN npm install
 
 COPY . .
 
-# Change ownership
+# Fix permissions
 RUN chown -R appuser:appgroup /app
 
 USER appuser
 
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["node", "app.js"]

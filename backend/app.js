@@ -3,7 +3,8 @@ const cors = require('cors');
 
 const app = express();
 
-// ✅ CORS FIX (important for browser)
+app.disable('x-powered-by'); // 🔥 fixes fingerprinting warning
+
 app.use(cors({
   origin: "http://localhost:8081"
 }));
