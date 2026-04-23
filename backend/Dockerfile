@@ -4,15 +4,14 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
 
-COPY app.js ./
+COPY . .
 
 RUN chown -R appuser:appgroup /app
-
 USER appuser
 
 EXPOSE 3000
 
-CMD ["node", "app.js"]
+CMD ["npm", "start"]
